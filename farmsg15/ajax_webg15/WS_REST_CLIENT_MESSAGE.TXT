@@ -1,0 +1,53 @@
+----------------------------------------------------------------
+CLIENT:
+
+GET
+SELECT * FROM CLIENT
+
+GET
+SELECT * FROM CLIENT WHERE ID=:id
+
+POST
+BEGIN
+INSERT INTO CLIENT (ID,NAME,EMAIL,AGE)
+VALUES(:id,:name,:email,:age);
+:status_code := 201;
+END;
+
+PUT
+BEGIN
+	UPDATE CLIENT SET NAME=:name,EMAIL=:email, 
+	AGE=:age where ID=:id;
+	:status_code := 201;
+END;
+
+DELETE
+BEGIN
+DELETE FROM CLIENT WHERE ID=:id;
+:status_code := 204;
+END;
+---------------------------------------------------------------------------
+GET
+SELECT * FROM MESSAGE
+
+GET
+SELECT * FROM MESSAGE WHERE ID=:id
+
+POST
+BEGIN
+INSERT INTO MESSAGE (ID,MESSAGETEXT)
+VALUES(:id,:messagetext);
+:status_code := 201;
+END;
+
+PUT
+BEGIN
+	UPDATE MESSAGE SET MESSAGETEXT=:messagetext where ID=:id;
+	:status_code := 201;
+END;
+
+DELETE
+BEGIN
+DELETE FROM MESSAGE WHERE ID=:id;
+:status_code := 204;
+END;
